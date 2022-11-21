@@ -11,3 +11,7 @@ The microservice architectural style is an approach to developing a single appli
 - Individual team can work on it
 - Easy to scalable
 
+Micorseverces Architecture vs Monolithlic Architecture
+A monolithic application is built as a single and indivisible unit. Usually, such a solution comprises a client-side user interface, a server side-application, and a database.
+
+A Microservices architecture breaks it down into a collection of smaller independent units. These units carry out every application process as a separate service. So all the services have their own logic and the database as well as perform the specific functions.
