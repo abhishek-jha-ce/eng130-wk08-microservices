@@ -22,8 +22,13 @@ The microservice architectural style is an approach to developing a single appli
 </p>
 
 
-## Docker
-[Introduction to Docker](docker/README.md)
+## Docker & Kubernetes
 
-
-
+### [Docker](docker/README.md)
+- Introduction to Docker
+- Installing Docker
+- Basic Docker Commands
+***
+### [Dockerfile](docker/docker-file.md)
+- Creating a Dockerfile
+- Dockerfile for our App
