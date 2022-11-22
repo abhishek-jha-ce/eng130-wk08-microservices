@@ -35,6 +35,22 @@ Docker containers and virtual machines are both ways of deploying applications i
   <img src="https://user-images.githubusercontent.com/110366380/203069196-75d3fc7a-a013-43f8-af7e-9b8cf8c126e2.png">
 </p>
 
+## Installing Docker
+
+#### Download & Install
+
+- Download for windows: https://www.docker.com/products/docker-desktop/
+- Open the `.exe` to run the installer.
+- Restart machine.
+
+#### Create Account
+- Sign up for docker at https://hub.docker.com/
+- Open the Docker desktop application & Sign in.
+
+#### Download WSL2
+- We Might need to install WS2 separately: https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+- If getting errors, kill the old Docker process in Task Manager and run it again.
+
 ## Common Docker Commands
 
 #### Docker Basics Commands
@@ -98,8 +114,26 @@ docker exec -it [container-id] bash
 docker cp <file to copy> <container_id>:path/to/file
 
 Example: Replacing nginx default page
+docker cp /c/Users/abhis/OneDrive/Desktop/abhishek.html c53ec895e261:/usr/share/nginx/html/index.html
+```
+
+#### Task
+- Tag the current container
+```
+docker tag [container-id] eng130_abhishek
+```
+- Stop the container
+- Run the new version of the container
+```
+docker run -d -p 80:80 eng130_abhishek
+```
+- Commit the container
 
 ```
-#### Commit and Push to Docker Hub
+docker commit [containername> abhishekjha21/eng130_abhishek:latest
 ```
+
+- Push it
+```
+docker push abhishekjha21/eng130_abhishek:latest
 ```
