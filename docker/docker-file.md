@@ -61,15 +61,15 @@ docker push abhishekjha21/130-nginx
 ```
 **Step 4**: Build the node app.
 ```
-docker build -t node-app .
+docker build -t abhishekjha21/node-app .
 ```
 **Step 5**: Run the app locally. Check if its working as intended.
 ```
-docker run -d -p 80:3000 node-app
+docker run -d -p 80:3000 abhishekjha21/node-app
 ```
 **Step 6**: Push the changes
 ```
-docker push abhishekjha21/node-app:v1
+docker push abhishekjha21/node-app
 ```
 **Step 7**: Delete the existing image
 ```
@@ -77,7 +77,7 @@ docker rm [image-id] -f
 ```
 **Step 8**: Download the image from Docker Hub & run it.
 ```
-docker run -d -p 80:3000 abhishekjha21/node-app:v1
+docker run -d -p 80:3000 abhishekjha21/node-app
 ```
 **Step 9**: Check if it's working properly in the browser by typing `localhost`. We should see:
 
