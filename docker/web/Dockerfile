@@ -22,3 +22,35 @@
   
 #  RUN npm install
 #  CMD ["npm", "start"]
+
+FROM node as app
+
+LABEL MAINTAINER=abhishekjha21/node-app
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install -g npm@7.20.6
+
+# Copy everything from current location to default location 
+COPY . .
+
+EXPOSE 3000
+
+CMD [ "node", "app.js" ]
+
+# Let's build a built-stage production ready image
+
+FROM node:alpine
+
+COPY package*.json ./
+
+RUN npm install -g npm@7.20.6
+
+#This line does the magic to compress the image
+COPY --from=app /usr/src/app /usr/src/app
+
+EXPOSE 3000
+
+CMD ["node", "app.js"]
