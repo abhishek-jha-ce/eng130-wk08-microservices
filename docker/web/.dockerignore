@@ -1,0 +1,9 @@
+# Ignore node_modules
+app/node_modules
+
+# Ignore all markdown
+*.md
+
+# Ignore the git and cache folders
+.git
+.cache
