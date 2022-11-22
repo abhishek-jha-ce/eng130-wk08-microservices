@@ -32,3 +32,53 @@ docker push abhishekjha21/130-nginx
 
 ## Creating an Image for our `app`
 
+**Step 1**: Create a new folder and create a new `Dockerfile` in that folder.
+
+**Step 2**: Add the required files in that folder. We copy the `app` and `environment` folder in that folder.
+
+**Step 3**: Add the following script to the `Dockerfile`.
+
+```
+  FROM nginx
+
+  LABEL MAINTAINER=abhishek@sparta
+
+  COPY app /home/
+  COPY environment /home/
+
+  EXPOSE 80
+  EXPOSE 3000
+
+  RUN apt-get update
+  RUN apt-get install -y
+  RUN apt-get install software-properties-common -y
+  RUN apt-get install npm -y
+
+  CMD ["nginx", "-g", "daemon off;"]
+  WORKDIR /home/app
+  RUN npm install
+  CMD ["npm", "start"]
+```
+**Step 4**: Build the node app.
+```
+docker build -t node-app .
+```
+**Step 5**: Run the app locally. Check if its working as intended.
+```
+docker run -d -p 80:3000 node-app
+```
+**Step 6**: Push the changes
+```
+docker push abhishekjha21/node-app:v1
+```
+**Step 7**: Delete the existing image
+```
+docker rm [image-id] -f
+```
+**Step 8**: Download the image from Docker Hub & run it.
+```
+docker run -d -p 80:3000 abhishekjha21/node-app:v1
+```
+**Step 9**: Check if it's working properly in the browser by typing `localhost`. We should see:
+
+![image](https://user-images.githubusercontent.com/110366380/203330491-23aae4e7-ea70-46af-af07-560045ff5aad.png)
