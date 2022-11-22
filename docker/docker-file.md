@@ -8,7 +8,7 @@
 
 - Navigate to the location where you want to create `Dockerfile`.
 - `sudo nano Dockerfile`
-- Sample Dockerfile - 
+- Sample Dockerfile - [Dockerfile](ngnx/Dockerfile)
 
 
 
