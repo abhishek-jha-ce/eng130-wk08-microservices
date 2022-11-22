@@ -81,11 +81,11 @@ docker run -d -p 80:80 nginx  # nginx in detached mode
 docker logs [container-id]
 ```
 
-#### Delete a running container
+#### Container Basic Commands
 ```
-docker stop [container-id] - stops the process running with all the
-docker start [container-id] - starts the process where it left off
-docker rm [container-id] -f # Force delete docker that is running
+docker stop [container-id]   # Stops the process running with all the
+docker start [container-id]  # Starts the process where it left off
+docker rm [container-id] -f  # Force delete container that is running
 ```
 
 #### Logging into a running container
