@@ -36,7 +36,7 @@ docker push abhishekjha21/130-nginx
 
 **Step 2**: Add the required files in that folder. We copy the `app` and `environment` folder in that folder.
 
-**Step 3**: Add the following script to the `Dockerfile`.
+**Step 3**: Add the following script to the `Dockerfile`. This script is further modified to make the image size smaller. The updated script is inside `app/Dockerfile`.
 
 ```
   FROM nginx
