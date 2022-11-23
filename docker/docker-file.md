@@ -98,7 +98,11 @@ EXPOSE 27017
 
 CMD ["mongod"]
 ```
-## Creating the `docker-compose.yml`
+## Docker Compose
+
+Dockers compose is a tool for defining and running multi-container Docker applications. With Compose, we can use a YAML file to configure our application’s services. Then, with a single command, we create and start all the services from your configuration.
+
+### Creating the `docker-compose.yml`
 
 ```
 services:
