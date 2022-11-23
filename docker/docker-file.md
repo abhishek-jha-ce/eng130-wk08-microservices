@@ -82,3 +82,41 @@ docker run -d -p 80:3000 abhishekjha21/node-app
 **Step 9**: Check if it's working properly in the browser by typing `localhost`. We should see:
 
 ![image](https://user-images.githubusercontent.com/110366380/203330491-23aae4e7-ea70-46af-af07-560045ff5aad.png)
+
+## Creating an Image for our `db`
+
+- The `Dockerfile` for our database:
+
+```
+FROM mongo:latest
+
+WORKDIR /usr/src/db/
+
+COPY ./mongod.conf /etc/
+
+EXPOSE 27017
+
+CMD ["mongod"]
+```
+## Creating the `docker-compose.yml`
+
+```
+services:
+  db:
+    image: mongo
+    # Mapping of container port to host
+    ports:
+      - "27017:27017"
+
+
+  app:
+  # Path to Dockerfile
+    build: ./app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=mongodb://localhost:27017/posts
+    depends_on:
+      - db
+```
