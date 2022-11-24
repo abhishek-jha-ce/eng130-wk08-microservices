@@ -120,7 +120,7 @@ docker cp /c/Users/abhis/OneDrive/Desktop/abhishek.html c53ec895e261:/usr/share/
 #### Task - To change the index.html file for `nginx` image and push it to your Docker Host.
 - Tag the current container
 ```
-docker tag [container-id/name] abhishekjha21/eng130_abhishek
+docker tag <image name>:[version] <docker hub username>/eng130_abhishek
 ```
 - Stop the container
 - Run the new version of the container
@@ -130,7 +130,7 @@ docker run -d -p 80:80 abhishekjha21/eng130_abhishek
 - Commit the container
 
 ```
-docker commit [containername] abhishekjha21/eng130_abhishek:latest
+docker commit [container Name/ID] abhishekjha21/eng130_abhishek:latest
 ```
 
 - Push it
