@@ -1,0 +1,22 @@
+---
+# Select the type of API version and type of service/object
+apiVersion: v1
+kind: Service
+
+# Metadata for name
+metadata:
+  name: node-svc
+  namespace: default # sre
+
+#Specification to include ports Selector to connect to the deployment
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+
+# Let's define the selector and label to connect to nginx depoyment
+  selector:
+    app: sparta-node-app # this label connects this service to deployment
+
+# Creating NodePort type of deployment
+  type: LoadBalancer # also use LoadBalancer - for local use cluster IP
