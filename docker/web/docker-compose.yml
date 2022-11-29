@@ -1,0 +1,97 @@
+# version: "3.9"
+# services:
+#   db:
+#     image: mongo
+#     ports:
+#       - "27017:27017"
+
+#   app:
+#     build: ./app
+#     restart: always
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       - DB_HOST=mongodb://db:27017/posts
+#     depends_on:
+#       - db
+
+# # 2nd one
+# # Version of the compose file format 
+# version: "3.9"
+# # Container services
+# services:
+#   db:
+#  #   build: ./app
+#   #  # image to fetch from docker hub
+#     image: mongo-express
+#     # Mapping of container port to host
+#     ports:
+#       - "27017:27017"
+#       # Mount volume 
+#     # volumes:
+#     #   - "db:/data/db"
+    
+#   app:
+#   # Path to Dockerfile 
+#     build: ./app
+#     restart: always
+#     ports:
+#       - "80:3000"
+#     # Environment variables for startup script
+#     # container will use these variables
+#     # to start the container with these define variables. 
+#     environment:
+#       - DB_HOST=mongodb://db:27017/posts
+#     command: "node seeds/seed.js"
+#     depends_on:
+#       - db
+
+# version: "2"
+# services: 
+#   mongo:
+#     image: mongo
+#   #  container_name: mongo
+#  #   restart: always
+#     volumes:
+#       - ./mongod.conf:/etc/mongod.conf
+#       - ./logs:/var/log/mongod/
+#       - ./db:/var/lib/mongodb
+#       #- ./mongod.service:/lib/systemd/system/mongod.service
+#     ports:
+#       - "27017:27017"
+
+#   app:
+#     container_name: app
+#     restart: always
+#     build: ./app # docker build -t name .
+#     ports:
+#       - "80:3000"
+#     links:
+#       - mongo
+#     environment: 
+#       - DB_HOST=mongodb://mongo:27017/posts
+#     depends_on:
+#       - 'mongo'
+
+version: "3.9"
+volumes:
+  db:
+services:
+  db:
+    image: mongo:4.0.4
+    container_name: db
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./db/mongod.conf:/etc/mongod.conf
+
+  app:
+    container_name: app
+    build: ./app
+    restart: always
+    ports:
+      - "80:3000"
+    environment:
+      - DB_HOST=mongodb://db:27017/posts
+    depends_on:
+      - db
