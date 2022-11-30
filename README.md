@@ -39,5 +39,5 @@ The microservice architectural style is an approach to developing a single appli
 - Commonlu Used Commands
 - Commands Cheat Sheet
 ### [Deploying nginx using K8s](k8s/nginx-deploy/README.md)
-### [Deploying nginx using K8s](k8s/node-deploy/README.md)
+### [Deploying node using K8s](k8s/node-deploy/README.md)
 
