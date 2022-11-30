@@ -1,4 +1,4 @@
-# KUBERNETES
+## KUBERNETES
 
 Kubernetes, also known as K8s, is an open-source orchestration system for automating deployment, scaling, and management of containerized applications. 
 
@@ -9,18 +9,18 @@ Kubernetes, also known as K8s, is an open-source orchestration system for automa
 - Large rapidly growing ecosystem.
 - It is also known as `K8s` or `K8`.
 
-## Benefits of Kubernetes
+### Benefits of Kubernetes
 
 - Automates Containerized Environments
 - Easy to Scale Up and Down
 - Can be Run Anywhere
 - Multi Cloud
 
-## Installation
+### Installation
 
 We can install kubernets from docker desktop settings.
 
-## Kubernetes Pods
+### Kubernetes Pods
 
 A Kubernetes pod is a collection of one or more Linux® containers, and is the smallest unit of a Kubernetes application. 
 
@@ -28,7 +28,7 @@ A Kubernetes pod is a collection of one or more Linux® containers, and is the s
 - A pod can also be composed of multiple, tightly coupled containers for advanced use case.
 - containers in the same pod will share the same compute resources.
 
-## Kubernetes Service
+### Kubernetes Service
 
 Kubernetes Service is an abstract way to expose an application running on a set of Pods as a network service. It is a REST object in the API that we define in a manifest file and post to the API server.
 
@@ -43,21 +43,42 @@ Further Reading: [Kubernetes Service](https://blog.learncodeonline.in/kubernetes
 ## Common Commands
 
 ### Display the Service
-
 ```
 kubectl get service
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   25h
 
-kubectl get svc  # short form for service
+kubectl get svc  # short form for service - same result
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   25h
+```
+
+### Delete a Service
+```
+$ kubectl delete svc nginx-svc
+service "nginx-svc" deleted
 ```
 
 ### Display Deployment
 ```
-kubectl get deployment # Currently we get- no resource found in default namespace - as nothing is deployed yet
+$ kubectl get deployment # Currently we get- no resource found in default namespace - as nothing is deployed yet
+No resources found in default namespace.
 
-kubectl get deploy - same as above
+$ kubectl get deploy # same as above
+No resources found in default namespace.
 ```
 
-kubectl get pods - shows the pods
+### Delete Deployments
+```
+$ kubectl delete deploy nginx-deployment
+deployment.apps "nginx-deployment" deleted
+```
+
+### Display Pods
+```
+$ kubectl get pods # Shows the pods # We don't have any yet
+No resources found in default namespace.
+```
 
 ## Kubernetes Cheet Sheet
 
